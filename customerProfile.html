@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    {% include "custHead.html"  %}
+    <div><h1>Customer Profile</h1></div>
+    <div>
+        <div>Customer Id: </div>
+        <div>{{customer[0]}}</div>
+    </div>
+    <div>
+        <div>Name: </div>
+        <div>{{customer[1]}}</div>
+    </div>
+    <div>
+        <div>Email: </div>
+        <div>{{customer[2]}}</div>
+    </div>
+    <div>
+        <div>Phone: </div>
+        <div>{{customer[3]}}</div>
+    </div>
+</body>
+</html>

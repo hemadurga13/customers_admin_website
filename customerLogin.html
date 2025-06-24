@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Login</title>
+</head>
+<body>
+    {% include "head.html" %}
+
+    <form action="customerLoginAction" method="post">
+        <div> <h2>Customer Login Here: </h2></div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="Enter email" required>
+        </div><br>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" placeholder="Enter password" required>
+        </div><br>
+        <div>
+            <input type="submit" value="Login">
+        </div>
+    </form>
+</body>
+</html>

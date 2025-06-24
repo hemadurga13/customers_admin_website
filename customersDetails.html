@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Customers Details</title>
+</head>
+<body>
+    {% include "adminHead.html" %}
+    <h3>Customers List is Below</h3>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Customer Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cust in view_customers %}
+                <tr>
+                    <td>{{cust[0]}}</td>
+                    <td>{{cust[1]}}</td>
+                    <td>{{cust[2]}}</td>
+                    <td>{{cust[3]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
