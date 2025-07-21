@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+
+}
+
+/* :root{
+    --bodyColor: rgb(178, 221, 145);
+    --primaryColor: rgb(224, 243, 216);
+    --secondaryColor: green;
+    --thirdColor: rgb(58, 84, 58);
+    --shadow: rgb(94, 165, 94);
+    --bg-color:rgb(255, 255, 255);
+    --border:lightgrey;
+    --btn-color:rgb(3, 79, 3);
+    --link-color:rgb(68, 0, 255);
+} */
+
+:root {
+    --bodyColor: rgb(232, 245, 233);        
+    --primaryColor: rgb(200, 230, 201);      
+    --secondaryColor: rgb(56, 142, 60);    
+    --thirdColor: rgb(27, 94, 32);        
+    --shadow: rgba(56, 142, 60, 0.3); 
+    --bg-color: rgb(255, 255, 255);          
+    --border: rgb(224, 224, 224);            
+    --btn-color: rgb(46, 125, 50);         
+    --nav-bar:rgb(3, 79, 3);
+    --link-color: rgb(21, 101, 192);  
+    --price-color: rgb(7, 62, 7);      
+}
+
+
+body{
+    background-color: var(--bg-color);
+}
+
+
+
+.m-20{
+    margin:20px;
+}
+
+.m-30{
+    margin: 30px;
+}
+
+.m-40{
+    margin: 40px;
+}
+
+.m-50{
+    margin: 50px;
+}
+
+.p-10{
+    padding: 10px;
+}
+
+.p-20{
+    padding: 20px;
+}
+
+.p-30{
+    padding: 30px;
+}
+
+.p-40{
+    padding: 40px;
+}
+
+.mt-20{
+    margin-top: 20px;
+}
+
+.ml-20{
+    margin-left: 20px;
+}
+
+.p-50{
+    padding:50px;
+}
+.w-30{
+    width:30%;
+}
+.w-60{
+    width: 60%;
+}
+
+.w-15{
+    width:15%;
+}

@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="..\static\css\home.css">
+    <link rel="stylesheet" href="..\static\css\margins.css">
 </head>
 <body>
-    {% include "head.html" %}
-    <h1>Welcome to the Sample Website</h1>
+    {% include "nav.html" %}
+    <div class="title m-30">
+        <h1 class="heading-1">Welcome to the QuicKart</h1>
+        <h2 class="heading-2">Your Shopping Destination</h2>
+    </div>
+
+    <div class="image-div">
+        <img class="image" src="/static/images/quickkart.png" alt="logo">
+    </div>
+
 </body>
 </html>

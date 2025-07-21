@@ -1,0 +1,14 @@
+.search-bar{
+    width: 100%; 
+}
+.search{
+    width: 100%;
+    border: 1px solid lightgrey;
+    padding: 15px;
+}
+.search-items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+

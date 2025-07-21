@@ -1,0 +1,34 @@
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+    box-sizing: border-box;
+}
+/* :root{
+    --primaryColor: rgb(224, 243, 216);
+    --secondaryColor: green;
+    --thirdColor: rgb(58, 84, 58);
+    --shadow: rgb(94, 165, 94);
+    --bg-color:rgb(255, 255, 255);
+    --border:lightgrey;
+    --btn-color:rgb(3, 79, 3);
+    --link-color:rgb(68, 0, 255);
+} */
+.title{
+    text-align: center;
+    margin:70px;
+}
+
+.heading-1{
+    font-size: 70px;
+    color: var(--secondaryColor);
+}
+
+.heading-2{
+    margin-top: 10px;
+    font-size: 30px;
+    color: var(--thirdColor);
+}
+
+.image-div{
+    width:100%;
+    text-align: center;
+}

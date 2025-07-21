@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Customer Home</title>
+    <link rel="stylesheet" href="..\static\css\home.css">
+    <link rel="stylesheet" href="..\static\css\margins.css">
 </head>
 <body>
-    {% include "custHead.html"  %}
-    <h2>Login Success!</h2>
-    <h1>Welcome {{session['role']}}!!</h1>
-    <h2>Enjoy exploring the site!!</h2>
+        {% include "customerNav.html" %}
+        {% include "links.html" %}
+
+        <div class="title m-30">
+            <h1  class="heading-1">Login Success!!!!</h1>
+        </div>
+
+        <div class="title m-30">
+            <h2 class="heading-2">Hello, Welcome {{role}}!!!!</h2>
+        </div>
 </body>
 </html>

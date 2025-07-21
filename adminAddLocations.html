@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Locations</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/tables.css">
+    <link rel="stylesheet" href="/static/css/margins.css">
+</head>
+<body>
+    {% include "adminNav.html" %}
+
+    <div class="flex-container">
+
+        <div class="flex-item"><img src="\static\images\quickkart.png" alt="logo"></div>
+
+        <div class="flex-item">
+
+            <form action="adminAddLocationsAction" method="post" class="form">
+                <div class="form-heading">
+                    <h2>Add New Location</h2>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-input-heading" for="location">Location: </label>
+                    <input class="form-input" type="text" name="location" id="location" placeholder="Enter the Location" required>
+                </div>
+                
+                <div class="form-item">
+                    <input class="form-btn" type="submit" value="Add">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div><h2 class="table-heading m-20" style="text-align:center">Locations Are Displayed Below</h2></div>
+    <div >
+        <table border="1" class="table mt-20">
+            <thead>
+                <tr class="row-head">
+                    <th class="row-head-item">Location Id</th>
+                    <th class="row-head-item">Location Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for location in locations %}
+                <tr>
+                    <td>{{location[0]}}</td>
+                    <td>{{location[1]}}</td>
+                </tr>
+             {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

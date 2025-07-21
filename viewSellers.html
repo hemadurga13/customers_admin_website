@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Sellers</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/tables.css">
+    <link rel="stylesheet" href="/static/css/margins.css">
+</head>
+<body>
+    {% include "adminNav.html" %}
+    <div>
+        <h2 class="table-heading m-20" style="text-align:center">Sellers are Displayed Below</h2>
+    </div>
+    <table border="1" class="table">
+        <thead>
+            <tr class="row-head">
+                <th class="row-head-item">Seller ID</th>
+                <th class="row-head-item">Seller Name</th>
+                <th class="row-head-item">Phone</th>
+                <th class="row-head-item">Email</th>
+                <th class="row-head-item">Status</th>
+                <th class="row-head-item">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for seller in sellers %}
+            <tr>
+                <td>{{seller[0]}}</td>
+                <td>{{seller[1]}}</td>
+                <td>{{seller[2]}}</td>
+                <td>{{seller[3]}}</td>
+                <td>{{seller[5]}}</td>
+                {% if seller[5] =="UNVERIFIED"  %}
+                <td><a href="set_status?status={{seller[5]}}&seller_id={{seller[0]}}">VERIFY</a></td>
+                {% else %}
+                <td><a href="set_status?status={{seller[5]}}&seller_id={{seller[0]}}">UN-VERIFY</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

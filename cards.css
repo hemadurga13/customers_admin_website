@@ -1,0 +1,65 @@
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+/* :root{
+    --primaryColor: rgb(224, 243, 216);
+    --secondaryColor: green;
+    --thirdColor: rgb(58, 84, 58);
+    --shadow: rgb(94, 165, 94);
+    --bg-color:rgb(255, 255, 255);
+    --border:lightgrey;
+    --btn-color:rgb(3, 79, 3);
+    --link-color:rgb(68, 0, 255);
+} */
+
+/* .card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+} */
+
+.card{
+    background-color: var(--bg-color);
+    border: 1px var(--border) solid;
+    border-radius: 1px;
+    box-shadow: 0 2px 8px var(--shadow);
+    overflow: hidden;
+}
+
+.card-items{
+    padding:10px;
+}
+
+.card-item{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+
+.card-item img {
+    width: 100%;
+    height: 200px;
+    border-radius: 2px;
+}
+
+.name{
+    color:var(--price-color);
+    font-weight: bold;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.price{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:var(--price-color);
+}
+.description{
+    height: 150px;
+}

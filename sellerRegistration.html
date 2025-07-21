@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Registration</title>
+    
+    <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body>
+    {% include "nav.html" %}
+
+    <div class="flex-container">
+        
+        <form action="sellerRegistrationAction" method="post" class="form">
+            <div class="form-heading">
+                <h1>Seller Registration Here</h1>
+            </div>
+
+            <div class="form-item">
+                <label class="form-input-heading"   for="name">Name :</label>
+                <input class="form-input" type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-item">
+                <label class="form-input-heading"  for="phone">Phone Number :</label>
+                <input class="form-input" type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-item">
+                <label class="form-input-heading"  for="email">Email :</label>
+                <input class="form-input" type="text" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-item">
+                <label class="form-input-heading"  for="location_id"> Choose Your Location: </label>
+                <select class="form-input" name="location_id" id="location_id">
+                    {% for location in locations %}
+                    <option value="{{location[0]}}">{{location[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+
+            <div class="form-item">
+                <label class="form-input-heading"  for="password">Password :</label>
+                <input class="form-input" type="text" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-item">
+                <input class="form-btn" type="submit" value="REGISTER">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

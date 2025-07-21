@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Products</title>
+</head>
+<body>
+    {% include "sellerNav.html" %}
+    <div><h2>Edit Product Details Here: </h2></div>
+    <div>
+    <form action="editProductsAction" method="post" enctype="multipart/form-data">
+        <div>
+            <input type="hidden" name="product_id" value="{{details[0]}}">
+        </div>
+        <div>
+            <label for="name">Product Name:</label>
+            <input id="name" name="name" type="text" placeholder="Enter product name" value="{{details[2]}}" required>
+        </div><br>
+        <div>
+            <label for="description">Product Description:</label>
+            <textarea id="description" name="description" placeholder="Enter Product Description"  required>{{ details[3] }}</textarea>
+        </div>
+        <br>
+
+<!--        <div>-->
+<!--            <label for="image">Product Image:</label>-->
+<!--            <input type="file" name="image" id="image" value="{{details[1]}}" required>-->
+<!--        </div><br>-->
+
+        <div>
+            <label for="price">Product Price:</label>
+            <input id="price" name="price" type="text" placeholder="Enter product price" value="{{details[4]}}" required>
+        </div><br>
+
+        <div>
+            <label for="quantity">Product quantity:</label>
+            <input id="quantity" name="quantity" type="text" placeholder="Enter product quantity" value="{{details[5]}}" required>
+        </div><br>
+
+<!--        <div>-->
+<!--                <label for="sub_category_id"> Choose the Sub-category: </label>-->
+<!--                <select name="sub_category_id" id="sub_category_id" >-->
+<!--                    <option value="Select Sub Category" disabled selected="selected">Select Sub Category</option>-->
+<!--                    {% for sub_category in sub_categories1 %}-->
+<!--                    <option value="{{sub_category[0]}}" >{{sub_category[1]}}</option>-->
+<!--                    {% endfor %}-->
+<!--                </select>-->
+<!--        </div><br>-->
+
+
+        <div>
+            <input type="submit" value="Edit Details">
+        </div>
+
+    </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Categories</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/tables.css">
+    <link rel="stylesheet" href="/static/css/margins.css">
+</head>
+<body>
+    {% include "adminNav.html" %}
+    <div class="flex-container">
+            <div class="flex-item">
+                <form action="addCategoriesAction" method="post" class="form" >
+                    <div class="form-heading">
+                        <h2>Add the Category Here: </h2>
+                    </div>
+                    <div class="form-item">
+                        <label class="form-input-heading" for="name">Category name: </label>
+                        <input class="form-input" type="text" name="name" id="name">
+                    </div>
+                        
+                    <div class="form-item">
+                        <input class="form-btn" type="submit" value="Add">
+                    </div>
+                </form>
+            </div>
+
+    
+        
+
+
+            <div class="flex-item">
+                <h2 class="table-heading m-20" style="text-align:center">Categories are displayed below:</h2>
+                <table border="1" class="table">
+                    <thead>
+                        <tr class="row-head">
+                            <th class="row-head-item">Category ID</th>
+                            <th class="row-head-item">Category Name</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for category in categories %}
+                            <tr>
+                                <td>{{category[0]}}</td>
+                                <td>{{category[1]}}</td>
+
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+
+    <!-- <h2 class="table-heading m-20" style="text-align:center">Categories are displayed below:</h2>
+
+
+    <div>
+        <table border="1" class="table">
+            <thead>
+                <tr class="row-head">
+                    <th class="row-head-item">Category ID</th>
+                    <th class="row-head-item">Category Name</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td>{{category[0]}}</td>
+                        <td>{{category[1]}}</td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div> -->
+</body>
+</html>

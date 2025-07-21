@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Home</title>
+    
+    <link rel="stylesheet" href="..\static\css\home.css">
+    <link rel="stylesheet" href="..\static\css\margins.css">
 </head>
 <body>
-    {% include "adminHead.html" %}
-
-    <div>
-        <h2>Welcome {{session['role']}}!!</h2>
+    {% include "adminNav.html" %}
+    <div class="title m-30">
+        <h1  class="heading-1">Hello, Welcome {{role}}!!!!</h1>
     </div>
+
+    <div class="image-div">
+        <img class="image" src="/static/images/quickkart.png" alt="logo">
+    </div>
+    
 </body>
 </html>

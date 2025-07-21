@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse/View Products</title>
+</head>
+<body>
+    {% include "customerNav.html" %}
+    {%include "links.html"%}
+
+    <form action="/viewProducts" class="row1 mt-10">
+        <div class="col-2 form-item">
+            <select name="seller_id" id="sellers" class="form-input">
+                <option value="" disabled selected>Choose Seller</option>
+                {% for seller in sellers%}
+                    <option  {% if str(seller[0]) == str(seller_id) %} selected {% endif %}  value="{{seller[0]}}">{{seller[1]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-2 form-item">
+            <select name="category_id" id="categories" class="form-input">
+                <option value="" disabled selected>Choose Category</option>
+                {% for category in categories%}
+                    <option  {% if str(category[0]) == str(category_id) %} selected {% endif %} value="{{category[0]}}">{{category[1]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-2 form-item">
+            <select name="sub_category_id" id="sub_categories" class="form-input">
+                <option value="" disabled selected>Choose SubCategory</option>
+                {% for sub_category in sub_categories%}
+                    <option  {% if str(sub_category[0]) == str(sub_category_id) %} selected {% endif %}  value="{{sub_category[0]}}">{{sub_category[1]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-4 form-item">
+            <input class="form-input" name="product_name" value="{{ product_name }}"  type="text" placeholder="Search Products Here">
+        </div>
+        <div class="col-2 form-item">
+            <input type="submit" class="form-btn" value="Search">
+        </div>
+    </form>
+    
+    <div class="row mt-20 ml-20">
+        {% for product in products %}
+        <div class="col-2">
+            <div class="card">
+                <div class="card-items">
+                    <div class="card-item name">
+                        {{product[2]}}
+                    </div>
+                    <div class="card-item">
+                        <img src="..\static\products\{{product[1]}}" style="height:200px; width:200px;">
+                    </div>
+                
+                    <div class="card-item description">
+                        {{product[3]}}
+                    </div>
+                    <div class="card-item price">
+                        {{product[4]}}
+                    </div>
+                    <div class="card-item">
+                        <form action="/shoppingCart">
+                            <input type="hidden" name="product_id" value="{{product[0]}}">
+                            <div class="row1">
+                                <div class="col-4 form-item">
+                                    <input class="form-input-cart" type="text" name="quantity" id="quantity" value="1">
+                                </div>
+            
+                                <div class="col-8 form-item">
+                                    <button type="submit" class="form-btn-cart"> ADD TO CART</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+
+</body>
+</html>

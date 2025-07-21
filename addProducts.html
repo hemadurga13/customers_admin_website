@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Add Products</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/tables.css">
+    <link rel="stylesheet" href="/static/css/margins.css">
+</head>
+<body>
+    {% include "sellerNav.html" %}
+    <!--    adding products  -->
+    
+
+    <div class="form-wrapper">
+        
+            <form action="addProducts" class="form1">
+                <div>
+                    <h2 class="table-heading m-20" style="text-align:center">Add Products here: </h2>
+                </div>
+
+                <div  class="form-item">
+                <label class="form-input-heading" for="category_id">Choose your Category: </label>
+                <select class="form-input" name="category_id" id="category_id" onchange="this.form.submit()">
+                    <option value="Select Category" disabled selected="selected">Select Category</option>
+                    {% for category in categories %}
+                    <option value="{{category[0]}}">{{category[1]}}</option>
+                    {% endfor %}
+                </select>
+                </div>
+            </form>
+
+           
+        <form action="/addProductsAction" method="post" enctype="multipart/form-data" class="form1">
+                <div  class="form-item">
+                    <label class="form-input-heading" for="name">Product Name:</label>
+                    <input class="form-input" id="name" name="name" type="text" placeholder="Enter product name" required>
+                </div>
+                <div  class="form-item">
+                    <label class="form-input-heading" for="description">Product Description:</label>
+                    <textarea class="form-input" id="description" name="description" placeholder="Enter Product Description" required></textarea>
+                </div>
+
+                <div  class="form-item">
+                    <label class="form-input-heading" for="image">Product Image:</label>
+                    <input type="file" name="image" id="image" required>
+                </div>
+
+                <div  class="form-item">
+                    <label class="form-input-heading" for="price">Product Price:</label>
+                    <input class="form-input" id="price" name="price" type="text" placeholder="Enter product price" required>
+                </div>
+
+                <div  class="form-item">
+                    <label class="form-input-heading" for="quantity">Product quantity:</label>
+                    <input class="form-input" id="quantity" name="quantity" type="text" placeholder="Enter product quantity" required>
+                </div>
+
+                <div  class="form-item">
+                        <label class="form-input-heading" for="sub_category_id"> Choose the Sub-category: </label>
+                        <select class="form-input" name="sub_category_id" id="sub_category_id">
+                            <option value="Select Sub Category" disabled selected="selected">Select Sub Category</option>
+                            {% for sub_category in sub_categories %}
+                            <option value="{{sub_category[0]}}">{{sub_category[1]}}</option>
+                            {% endfor %}
+                        </select>
+                </div>
+
+
+                <div  class="form-item">
+                    <input class="form-btn" type="submit" value="Add Product">
+                </div>
+
+            </form>
+
+    </div>
+
+
+
+
+<!--    &lt;!&ndash;    Sorting by categories     &ndash;&gt;-->
+<!--    <div><h2>Sort Products Category wise here: </h2></div>-->
+<!--    <div>-->
+<!--    <form action="addProducts">-->
+<!--        <div>-->
+<!--        <label for="category_id">Choose your Category: </label>-->
+<!--        <select name="category_id" id="category_id" onchange="this.form.submit()">-->
+<!--            <option value="Select Category" disabled selected="selected">Select Category</option>-->
+<!--            {% for category in categories %}-->
+<!--            <option value="{{category[0]}}">{{category[1]}}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--    </div><br>-->
+
+<!--    <div>-->
+<!--        <label for="sub_category_id1"> Choose the Sub-category: </label>-->
+<!--        <select name="sub_category_id" id="sub_category_id1" onchange="this.form.submit()">-->
+<!--            <option value="Select Sub Category" disabled selected="selected">Select Sub Category</option>-->
+<!--            {% for sub_category in sub_categories %}-->
+<!--            <option value="{{sub_category[0]}}">{{sub_category[1]}}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--    </div><br>-->
+<!--    </form>-->
+<!--    </div>-->
+
+
+
+
+
+
+
+
+
+    <!--    Viewing Products   -->
+    <div>
+        <div >
+            <h2 class="table-heading m-20" style="text-align:center">Products are displayed below: </h2>
+        </div>
+        <table border="1" class="table">
+            <thead>
+                <tr class="row-head">
+                    <th class="row-head-item">Product Image</th>
+                    <th class="row-head-item">Product Name</th>
+                    <th class="row-head-item">Product Description</th>
+                    <th class="row-head-item">Product Price</th>
+                    <th class="row-head-item">Product quantity</th>
+                    <th class="row-head-item">Sub-category</th>
+                    <th class="row-head-item">Edit Details</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for product in products %}
+                {% set sub_category_name=get_sub_category_id_by_sub_category_name(product[7]) %}
+                <tr>
+                    <td><img src="..\static\products\{{product[1]}}" style="height:150px; width:150px;"></td>
+                    <td>{{product[2]}}</td>
+                    <td>{{product[3]}}</td>
+                    <td>{{product[4]}}</td>
+                    <td>{{product[5]}}</td>
+                    <td>{{sub_category_name[1]}}</td>
+                    <td><a href="/editProducts?product_id={{ product[0]}}"><input type="submit" value="EDIT"></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Delivery Agencies</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/tables.css">
+    <link rel="stylesheet" href="/static/css/margins.css">
+
+</head>
+<body>
+    {% include "adminNav.html" %}
+    <div>
+        <h1 class="table-heading mt-20" style="text-align:center">Add Delivery Agencies Here: </h1>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item"><img src="\static\images\quickkart.png" alt="logo"></div>
+
+        <div  class="flex-item">
+            <form action="addDeliveryAction" method="post" class="form">
+                
+                <div class="form-item">
+                    <label class="form-input-heading" for="name">Delivery Agency Name: </label>
+                    <input class="form-input" type="text" id="name" name="name" placeholder="Enter Agency Name" required>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-input-heading" for="phone">Delivery Agency Phone: </label>
+                    <input class="form-input" type="text" id="phone" name="phone" placeholder="Enter Agency Phone Number" required>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-input-heading" for="password">Delivery Agency Password: </label>
+                    <input class="form-input" type="text" id="password" name="password" placeholder="Enter Password" required>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-input-heading" for="location"> Choose Your Location: </label>
+                    <select class="form-input" name="location_id" id="location">
+                        {% for location in locations %}
+                        <option value="{{location[0]}}">{{location[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-item">
+                    <input class="form-btn" type="submit" value="Add Agency">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <h2 class="table-heading m-20" style="text-align:center">Delivery Agencies Are Displayed Below</h2>
+    </div>
+    <div>
+        <table border="1" class="table">
+            <thead>
+                <tr class="row-head">
+                    <th class="row-head-item">Delivery Agency ID</th>
+                    <th class="row-head-item">Delivery Agency Name</th>
+                    <th class="row-head-item">Phone Number</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for agency in agencies %}
+                    <tr >
+                        <td>{{agency[0]}}</td>
+                        <td>{{agency[1]}}</td>
+                        <td>{{agency[2]}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

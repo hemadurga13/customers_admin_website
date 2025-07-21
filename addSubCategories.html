@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Sub Categories</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/tables.css">
+    <link rel="stylesheet" href="/static/css/margins.css">
+</head>
+<body>
+    {% include "adminNav.html" %}
+    
+
+    <div class="flex-container">
+        <form action="addSubCategoriesAction" method="post" class="form">
+            <div class="table-heading m-20" style="text-align:center">
+                <h2 >
+                    Add Sub-Categories Here:
+                </h2>
+            </div>
+            <div class="form-item">
+                <label class="form-input-heading" for="category_id">Choose your Category: </label>
+                <select class="form-input" name="category_id" id="category_id">
+                    {% for category in categories %}
+                    <option value="{{category[0]}}">{{category[1]}}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+            
+            <div class="form-item">
+                <label class="form-input-heading" for="name">Sub Category name: </label>
+                <input class="form-input" type="text" name="name" id="name">
+            </div>
+              
+            <div class="form-item">
+                <input class="form-btn" type="submit" value="Add">
+            </div>
+        </form>
+    </div>
+
+
+    <div >
+        <form action="addSubCategories" >
+            <div>
+                    <h2 class="table-heading m-20" style="text-align:center">Sub-Categories Sorted by Category: </h2>
+            </div>
+            
+            <div>
+                <label class="form-input-heading" for="category_id1">Sort by Category: </label>
+                    <select class="form-input" name="category_id" id="category_id1"  onchange="this.form.submit()" >
+                        <option value="Select Category" disabled selected="selected">Select Category</option>
+                        {% for category in categories %}
+                        <option {% if str(category[0])== str(category_id) %} selected {% endif %} value="{{category[0]}}" >{{category[1]}}</option>
+                        {% endfor %}
+                    </select>
+            </div>
+        </form>
+    </div>
+
+    <div>
+    <h2 class="table-heading m-20" style="text-align:center">Sub Categories Are Displayed Below: </h2>
+    </div>
+
+    <div>
+        <table border="1"  class="table">
+            <thead>
+                <tr class="row-head">
+                    <th class="row-head-item">Sub-Category ID</th>
+                    <th class="row-head-item">Sub-Category Name</th>
+                    <th class="row-head-item">Category Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subCategory in subCategories %}
+                {% set category_name=get_category_id_by_category_name(subCategory[2]) %}
+                    <tr>
+                        <td>{{subCategory[0]}}</td>
+                        <td>{{subCategory[1]}}</td>
+                        <td>{{category_name[1]}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

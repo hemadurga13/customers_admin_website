@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery Agency Login</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body>
+    {% include "nav.html" %}
+    <div  class="flex-container">
+        <div class="flex-item">
+            <form action="deliveryAgencyAction" method="post" class="form">
+                <div class="form-heading">
+                    <h1>Delivery Agency Login</h1>
+                </div>
+                <div class="form-item">
+                    <label class="form-input-heading" for="name">Name: </label>
+                    <input class="form-input" type="text" name="name" id="name" placeholder="Enter agency name" required>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-input-heading" for="password">Password: </label>
+                    <input  class="form-input" type="password" name="password" id="password" placeholder="Enter agency password" required>
+                </div>
+                <div class="form-item">
+                    <input class="form-btn" type="submit" value="LOGIN">
+                </div> 
+            </form>
+        </div>
+
+        <div class="flex-item"><img src="\static\images\quickkart.png" alt="logo"></div>
+    </div>
+</body>
+</html>

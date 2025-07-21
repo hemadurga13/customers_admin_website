@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Login</title>
+    
+    <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body>
+    {% include "nav.html" %}
+    <div class="flex-container">
+
+         <div class="flex-item"><img src="\static\images\quickkart.png" alt="logo"></div>
+
+
+        <div class="flex-item" >
+            <form action="sellerLoginAction" method="post"  class="form">
+                <div class="form-heading">
+                    <h1>Seller Login Here</h1>
+                </div>
+
+                <div class="form-item">
+                    <label  class="form-input-heading" for="email">Email: </label>
+                    <input class="form-input"  type="text" name="email" id="email" placeholder="Enter email" required>
+                </div>
+
+                <div class="form-item">
+                    <label  class="form-input-heading" for="password">Password: </label>
+                    <input class="form-input" type="password" name="password" id="password" placeholder="Enter password" required>
+                </div>
+
+                <div class="form-item">
+                    <input class="form-btn" type="submit" value="LOGIN">
+                </div>
+
+                <div  class="form-item-base">
+                    No account? <a  class='form-link' href="/sellerRegistration">Register Here</a>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+    
+</body>
+</html>
